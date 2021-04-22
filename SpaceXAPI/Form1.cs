@@ -62,6 +62,29 @@ namespace SpaceXAPI
             userNumber++;
 
             apiWrapper.GetNextFlightData(apiWrapper.response, userNumber);
+            flightNumber.Text = Convert.ToString(userNumber);
+
+            try
+            {
+                flightData.Text = apiWrapper.allFlightData;
+            }
+
+            catch
+            {
+                MessageBox.Show("Please load the flight data.");
+            }
+        }
+
+        public async void previous_Click(object sender, EventArgs e)
+        {
+            var apiWrapper = new APIWrapper();
+            int userNumber = Convert.ToInt32(flightNumber.Text);
+            await apiWrapper.GetFlightObject();
+
+            userNumber--;
+
+            apiWrapper.GetNextFlightData(apiWrapper.response, userNumber);
+            flightNumber.Text = Convert.ToString(userNumber);
 
             try
             {

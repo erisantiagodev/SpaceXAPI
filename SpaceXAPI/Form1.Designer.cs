@@ -34,6 +34,7 @@ namespace SpaceXAPI
             this.flightNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.next = new System.Windows.Forms.Button();
+            this.previous = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // flightSearch
@@ -83,11 +84,23 @@ namespace SpaceXAPI
             this.next.UseVisualStyleBackColor = true;
             this.next.Click += new System.EventHandler(this.next_Click);
             // 
+            // previous
+            // 
+            this.previous.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.previous.Location = new System.Drawing.Point(330, 135);
+            this.previous.Name = "previous";
+            this.previous.Size = new System.Drawing.Size(37, 23);
+            this.previous.TabIndex = 5;
+            this.previous.Text = "<";
+            this.previous.UseVisualStyleBackColor = true;
+            this.previous.Click += new System.EventHandler(this.previous_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 680);
+            this.Controls.Add(this.previous);
             this.Controls.Add(this.next);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flightNumber);
@@ -107,6 +120,7 @@ namespace SpaceXAPI
         private System.Windows.Forms.TextBox flightNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button next;
+        private System.Windows.Forms.Button previous;
     }
 }
 

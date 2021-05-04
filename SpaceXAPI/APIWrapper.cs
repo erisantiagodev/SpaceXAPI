@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
 
 namespace SpaceXAPI
 {
@@ -43,7 +44,7 @@ namespace SpaceXAPI
 
             catch
             {
-                
+                MessageBox.Show("Object not found.");
             }
         }
 
@@ -94,3 +95,4 @@ namespace SpaceXAPI
 }
 //https://stackoverflow.com/questions/31536082/how-to-return-a-string-from-async
 //https://stackoverflow.com/questions/24496816/how-to-search-json-string-for-fields
+//https://api.spacexdata.com/v4/launches/upcoming

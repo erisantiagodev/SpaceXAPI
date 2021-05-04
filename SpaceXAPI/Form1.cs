@@ -37,7 +37,6 @@ namespace SpaceXAPI
         {
             var apiWrapper = new APIWrapper();
             await apiWrapper.GetFlightObject();
-
             int userNumber = Convert.ToInt32(flightNumber.Text);
             await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
 
@@ -55,45 +54,47 @@ namespace SpaceXAPI
 
         public async void next_Click(object sender, EventArgs e)
         {
-            var apiWrapper = new APIWrapper();
-            int userNumber = Convert.ToInt32(flightNumber.Text);
-            await apiWrapper.GetFlightObject();
-
-            userNumber++;
-
-            apiWrapper.GetNextFlightData(apiWrapper.response, userNumber);
-            flightNumber.Text = Convert.ToString(userNumber);
-
             try
             {
+                var apiWrapper = new APIWrapper();
+                int userNumber = Convert.ToInt32(flightNumber.Text);
+                await apiWrapper.GetFlightObject();
+
+                userNumber++;
+
+                await apiWrapper.GetNextFlightData(apiWrapper.response, userNumber);
+                flightNumber.Text = Convert.ToString(userNumber);
+
                 flightData.Text = apiWrapper.allFlightData;
             }
 
             catch
             {
-                MessageBox.Show("Please load the flight data.");
+                MessageBox.Show("Please enter a number smaller than 126.");
+                //flightData.Text = "Please enter a number smaller than 126.";
             }
         }
 
         public async void previous_Click(object sender, EventArgs e)
         {
-            var apiWrapper = new APIWrapper();
-            int userNumber = Convert.ToInt32(flightNumber.Text);
-            await apiWrapper.GetFlightObject();
-
-            userNumber--;
-
-            apiWrapper.GetNextFlightData(apiWrapper.response, userNumber);
-            flightNumber.Text = Convert.ToString(userNumber);
-
             try
             {
+                var apiWrapper = new APIWrapper();
+                int userNumber = Convert.ToInt32(flightNumber.Text);
+                await apiWrapper.GetFlightObject();
+
+                userNumber--;
+
+                await apiWrapper.GetNextFlightData(apiWrapper.response, userNumber);
+                flightNumber.Text = Convert.ToString(userNumber);
+
                 flightData.Text = apiWrapper.allFlightData;
             }
 
             catch
             {
-                MessageBox.Show("Please load the flight data.");
+                MessageBox.Show("Please enter a number greater than zero.");
+                //flightData.Text = "Please enter a number greater than zero.";
             }
         }
     }

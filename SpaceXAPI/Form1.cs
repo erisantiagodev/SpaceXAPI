@@ -62,7 +62,7 @@ namespace SpaceXAPI
 
                 userNumber++;
 
-                await apiWrapper.GetNextFlightData(apiWrapper.response, userNumber);
+                await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
                 flightNumber.Text = Convert.ToString(userNumber);
 
                 flightData.Text = apiWrapper.allFlightData;
@@ -85,7 +85,7 @@ namespace SpaceXAPI
 
                 userNumber--;
 
-                await apiWrapper.GetNextFlightData(apiWrapper.response, userNumber);
+                await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
                 flightNumber.Text = Convert.ToString(userNumber);
 
                 flightData.Text = apiWrapper.allFlightData;

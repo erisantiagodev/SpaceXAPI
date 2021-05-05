@@ -63,34 +63,6 @@ namespace SpaceXAPI
             allFlightData = $"Flight Number: {flightNumber}. Name of rocket: {name}. Time of launch: {date} " +
                 $"Details: {details}. Rocket ID: {rocket}";
         }
-
-        public async Task GetNextFlightData(string flightObject, int userFlight)
-        {
-            JArray jsonObject = JArray.Parse(flightObject);
-
-            flightNumber = jsonObject[userFlight - 1]["flight_number"].Value<string>();
-            name = jsonObject[userFlight - 1]["name"].Value<string>();
-            date = jsonObject[userFlight - 1]["date_utc"].Value<string>();
-            details = jsonObject[userFlight - 1]["details"].Value<string>();
-            rocket = jsonObject[userFlight - 1]["rocket"].Value<string>();
-
-            allFlightData = $"Flight Number: {flightNumber}. Name of rocket: {name}. Time of launch: {date} " +
-                $"Details: {details}. Rocket ID: {rocket}";
-        }
-
-        public async Task GetPreviousFlightData(string flightObject, int userFlight)
-        {
-            JArray jsonObject = JArray.Parse(flightObject);
-
-            flightNumber = jsonObject[userFlight]["flight_number"].Value<string>();
-            name = jsonObject[userFlight]["name"].Value<string>();
-            date = jsonObject[userFlight]["date_utc"].Value<string>();
-            details = jsonObject[userFlight]["details"].Value<string>();
-            rocket = jsonObject[userFlight]["rocket"].Value<string>();
-
-            allFlightData = $"Flight Number: {flightNumber}. Name of rocket: {name}. Time of launch: {date} " +
-                $"Details: {details}. Rocket ID: {rocket}";
-        }
     }
 }
 //https://stackoverflow.com/questions/31536082/how-to-return-a-string-from-async

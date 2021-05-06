@@ -35,21 +35,19 @@ namespace SpaceXAPI
 
         public async Task PrintFlightData()
         {
-            var apiWrapper = new APIWrapper();
-            await apiWrapper.GetFlightObject();
-            int userNumber = Convert.ToInt32(flightNumber.Text);
-            await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
-
             try
             {
+                var apiWrapper = new APIWrapper();
+                await apiWrapper.GetFlightObject();
+                int userNumber = Convert.ToInt32(flightNumber.Text);
+                await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
                 flightData.Text = apiWrapper.allFlightData;
             }
 
             catch
             {
-                MessageBox.Show("Please load the flight data.");
+                MessageBox.Show("Please enter in a flight number.", "Error Info");
             }
-
         }
 
         public async void next_Click(object sender, EventArgs e)
@@ -64,7 +62,6 @@ namespace SpaceXAPI
 
                 await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
                 flightNumber.Text = Convert.ToString(userNumber);
-
                 flightData.Text = apiWrapper.allFlightData;
             }
 
@@ -86,7 +83,6 @@ namespace SpaceXAPI
 
                 await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
                 flightNumber.Text = Convert.ToString(userNumber);
-
                 flightData.Text = apiWrapper.allFlightData;
             }
 

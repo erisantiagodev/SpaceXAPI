@@ -15,6 +15,7 @@ namespace SpaceXAPI
 {
     public partial class Form1 : Form
     {
+        APIWrapper apiWrapper = new APIWrapper();
         public Form1()
         {
             InitializeComponent();
@@ -37,11 +38,8 @@ namespace SpaceXAPI
         {
             try
             {
-                var apiWrapper = new APIWrapper();
                 await apiWrapper.GetFlightObject();
-                int userNumber = Convert.ToInt32(flightNumber.Text);
-                await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
-                flightData.Text = apiWrapper.allFlightData;
+                GetAndPrintData(Convert.ToInt32(flightNumber.Text));
             }
 
             catch
@@ -50,19 +48,23 @@ namespace SpaceXAPI
             }
         }
 
+        public void GetAndPrintData(int userNumber)
+        {
+            apiWrapper.GetFlightData(apiWrapper.response, userNumber);
+            flightNumber.Text = Convert.ToString(userNumber);
+            flightData.Text = apiWrapper.allFlightData;
+        }
+
         public async void next_Click(object sender, EventArgs e)
         {
             try
             {
-                var apiWrapper = new APIWrapper();
                 int userNumber = Convert.ToInt32(flightNumber.Text);
                 await apiWrapper.GetFlightObject();
 
                 userNumber++;
 
-                await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
-                flightNumber.Text = Convert.ToString(userNumber);
-                flightData.Text = apiWrapper.allFlightData;
+                GetAndPrintData(userNumber);
             }
 
             catch (Exception ex)
@@ -75,15 +77,12 @@ namespace SpaceXAPI
         {
             try
             {
-                var apiWrapper = new APIWrapper();
                 int userNumber = Convert.ToInt32(flightNumber.Text);
                 await apiWrapper.GetFlightObject();
 
                 userNumber--;
 
-                await apiWrapper.GetFlightData(apiWrapper.response, userNumber);
-                flightNumber.Text = Convert.ToString(userNumber);
-                flightData.Text = apiWrapper.allFlightData;
+                GetAndPrintData(userNumber);
             }
 
             catch (Exception ex)

@@ -48,7 +48,7 @@ namespace SpaceXAPI
             }
         }
 
-        public async Task GetFlightData(string flightObject, int userFlight)
+        public void GetFlightData(string flightObject, int userFlight)
         {
             jsonObject = JArray.Parse(flightObject);
 

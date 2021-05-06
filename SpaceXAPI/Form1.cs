@@ -29,7 +29,7 @@ namespace SpaceXAPI
 
             catch
             {
-                flightData.Text = "Loading...";
+                MessageBox.Show("Please enter in a flight number.", "Error Info");
             }
         }
 
@@ -68,10 +68,9 @@ namespace SpaceXAPI
                 flightData.Text = apiWrapper.allFlightData;
             }
 
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Please enter a number smaller than 126.");
-                //flightData.Text = "Please enter a number smaller than 126.";
+                MessageBox.Show($"{ex.Message}. Please enter a number smaller than 126.", "Error Info:");
             }
         }
 
@@ -91,10 +90,9 @@ namespace SpaceXAPI
                 flightData.Text = apiWrapper.allFlightData;
             }
 
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Please enter a number greater than zero.");
-                //flightData.Text = "Please enter a number greater than zero.";
+                MessageBox.Show($"{ex.Message}. Please enter a number greater than zero.", "Error Info:");
             }
         }
     }

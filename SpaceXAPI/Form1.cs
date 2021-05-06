@@ -1,13 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,15 +15,7 @@ namespace SpaceXAPI
 
         private async void flightSearch_Click(object sender, EventArgs e)
         {
-            try
-            {
-                await PrintFlightData();
-            }
-
-            catch
-            {
-                MessageBox.Show("Please enter in a flight number.", "Error Info");
-            }
+            await PrintFlightData();
         }
 
         public async Task PrintFlightData()

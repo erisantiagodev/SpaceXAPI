@@ -7,6 +7,7 @@ This application takes a user's input in the form of a number for a specific Spa
 We run the program and see the window pop up. Let's choose five as the flight number we'd like to see in the first text box.
 Hit the Search button, and now we will see the data appear in the second, larger text box.
 The information displayed should be as such:
+
 Flight Number: 5. Name of rocket: RazakSat. Time of launch: 07/13/2009 03:35:00 Details: . Rocket ID: 5e9d0d95eda69955f709d1eb
 
 Let's try searching for more flights using the toggle buttons on either side of the first text box. If we hit the "<" button, we will get information for the fourth flight.

@@ -111,7 +111,7 @@ namespace SpaceXAPI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SpaceXAPI.Properties.Resources.spacepic;
+            this.BackgroundImage = global::SpaceXAPI.Properties.Resources.space;
             this.ClientSize = new System.Drawing.Size(918, 680);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.previous);

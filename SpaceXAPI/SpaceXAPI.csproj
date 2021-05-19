@@ -89,5 +89,17 @@
   <ItemGroup>
     <None Include="Resources\spacepic.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spacestars.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\space.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\space2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hyades.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

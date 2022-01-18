@@ -61,6 +61,3 @@ namespace SpaceXAPI
         }
     }
 }
-//https://stackoverflow.com/questions/31536082/how-to-return-a-string-from-async
-//https://stackoverflow.com/questions/24496816/how-to-search-json-string-for-fields
-//https://api.spacexdata.com/v4/launches/upcoming

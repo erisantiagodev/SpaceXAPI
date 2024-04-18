@@ -18,6 +18,7 @@ namespace SpaceXAPI
         public string details;
         public string flightNumber;
         public string allFlightData;
+        public int numberOfFlights;
 
         HttpClient ApiClient = new HttpClient();
         JArray jsonObject = new JArray();
@@ -47,6 +48,8 @@ namespace SpaceXAPI
         public void GetFlightData(string flightObject, int userFlight)
         {
             jsonObject = JArray.Parse(flightObject);
+            
+            numberOfFlights = jsonObject.Count;
 
             int correctedFlightNumber = userFlight - 1;
 

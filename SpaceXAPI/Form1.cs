@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,11 +24,15 @@ namespace SpaceXAPI
             {
                 await apiWrapper.GetFlightObject();
                 GetAndPrintData(Convert.ToInt32(flightNumber.Text));
+                apiWrapper.GetFlightData(apiWrapper.response, Convert.ToInt32(flightNumber.Text));
             }
 
             catch
             {
-                MessageBox.Show("Please enter in a flight number.", "Error Info");
+                int flight = Convert.ToInt32(flightNumber.Text);
+                if (flight < 0 || flight == 0)
+                { MessageBox.Show("Please enter a number greater than zero.", "Error Info"); }
+                else if (flight > apiWrapper.numberOfFlights) { MessageBox.Show($"Please enter a number smaller than {apiWrapper.numberOfFlights + 1}.", "Error Info"); }
             }
         }
 
@@ -45,6 +49,7 @@ namespace SpaceXAPI
             {
                 int userNumber = Convert.ToInt32(flightNumber.Text);
                 await apiWrapper.GetFlightObject();
+                apiWrapper.GetFlightData(apiWrapper.response, userNumber);
 
                 userNumber++;
 
@@ -53,7 +58,7 @@ namespace SpaceXAPI
 
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}. Please enter a number smaller than 126.", "Error Info:");
+                MessageBox.Show($"{ex.Message}. Please enter a number smaller than {apiWrapper.numberOfFlights + 1}.", "Error Info:");
             }
         }
 

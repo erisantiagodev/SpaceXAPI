@@ -22,10 +22,6 @@ namespace SpaceXAPI
 
         HttpClient ApiClient = new HttpClient();
         JArray jsonObject = new JArray();
-        public APIWrapper()
-        {
-
-        }
 
         public async Task GetFlightObject()
         {
